@@ -1,3 +1,7 @@
+import {Episode} from "./episode.model"
+
+
+
 export interface Character {
 	id: number
 	name: string
@@ -5,10 +9,10 @@ export interface Character {
 	species: string
 	type: string
 	gender: string
-	origin: {name: string, link: string}
-	location: {name: string, link: string}
+	origin: {name: string, url: string}
+	location: {name: string, url: string}
 	image: string
-	episode: Array<string>
+	episode?: Array<Episode>
 	url: string
 	created: Date
 }
@@ -20,8 +24,8 @@ export interface CharacterHttp {
 	species: string
 	type: string
 	gender: string
-	origin: {name: string, link: string}
-	location: {name: string, link: string}
+	origin: {name: string, url: string}
+	location: {name: string, url: string}
 	image: string
 	episode: Array<string>
 	url: string
@@ -36,6 +40,8 @@ export namespace Character {
 	}
 
 	export function fromCharacterHttpToCharacter(characterHttp: CharacterHttp): Character {
+		let episodes: Episode[] = []
+
 		return {
 			id: characterHttp.id,
 			name: characterHttp.name,
@@ -46,9 +52,10 @@ export namespace Character {
 			origin: characterHttp.origin,
 			location: characterHttp.location,
 			image: characterHttp.image,
-			episode: characterHttp.episode,
+			//episode: epi,
 			url: characterHttp.url,
 			created: new Date(characterHttp.created)
 		}
 	}
+
 }

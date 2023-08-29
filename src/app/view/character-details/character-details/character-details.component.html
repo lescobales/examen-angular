@@ -1,1 +1,8 @@
-<p>character-details works!</p>
+<div *ngIf="character"
+	class="row col-6 card shadow mx-auto">
+  <div class="card-body text-center">
+    <h5 class="card-title">{{character.name}} - {{character.id}}</h5>
+    <img src="{{character.image}}" class="card-img-top">
+    <button routerLink="/characters" class="btn btn-primary mt-2">RETOUR</button>
+  </div>
+</div>

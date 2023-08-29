@@ -5,7 +5,7 @@ export interface Episode {
 	name: string
 	air_date: string
 	episode: string
-	characters?: Array<Character>
+	characters: Array<string>
 	url: string
 	created: Date
 }
@@ -27,7 +27,7 @@ export namespace Episode {
 			name: episodeHttp.name,
 			air_date: episodeHttp.air_date,
 			episode: episodeHttp.episode,
-			//characters: episodeHttp.characters,
+			characters: episodeHttp.characters,
 			url: episodeHttp.url,
 			created: new Date(episodeHttp.created)
 		}

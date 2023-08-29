@@ -1,1 +1,17 @@
-<p>character-card works!</p>
+<div class="card" style="width: 12rem;">
+<a [routerLink]="['/characters', character.id]">
+	<img src="{{character.image}}" class="card-img-top" alt="{{character.name}}">
+  <div class="card-body">
+	  <h5 class="card-title">({{character.id}}){{character.name}} - {{character.status}}</h5>
+
+  
+
+  </div></a>
+
+  <select class="form-select" aria-label="Episodes list">
+  <option selected>See episodes</option>
+  <option *ngFor="let episode of character.episode "
+  value="episode.id">
+  {{episode.name}}</option>
+</select>
+</div>

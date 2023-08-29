@@ -1,1 +1,26 @@
-<p>paginator works!</p>
+<nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item" role ="button" *ngIf="info.prev" (click)="onPageClick('prev')">
+      <a class="page-link" 
+	 tabindex="-1"
+	 >
+      Previous</a>
+    </li>
+    <li *ngFor="let _ of pages; index as i"
+	 (click)="onPageClick(i+1)"
+	class="page-item"
+	role="button"
+	><a class="page-link" 
+	    *ngIf="(i<minVisible || i>maxVisible) ;else  point">
+	    {{i+1}}
+    </a></li>
+    <li
+	*ngIf="info.next"
+		    (click)="onPageClick('next')"
+	role="button">
+      <a class="page-link"
+	 >Next</a>
+    </li>
+  </ul>
+</nav>
+<ng-template #point>.</ng-template>
