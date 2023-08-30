@@ -10,7 +10,6 @@ import {CharacterService} from 'src/app/service/character/character.service';
 })
 export class CharacterDetailsComponent implements OnInit {
 	character?: Character
-	isModal: boolean = false
 	constructor(private characterService: CharacterService,
 		private router: Router,
 		private route: ActivatedRoute) {}
@@ -29,9 +28,7 @@ export class CharacterDetailsComponent implements OnInit {
 	}
 
 	removeCharacter(id: number) {
-		this.isModal = true
 		this.characterService.remove(id)
-		this.isModal = false
 	}
 
 }

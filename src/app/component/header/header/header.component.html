@@ -7,4 +7,9 @@
     class="btn btn-outline-light position-absolute top-0 end-0 me-2 mt-2">
     ME DECONNECTER
   </button>
+
+  <button *ngIf="isConnected$ | async"
+    	  [routerLink]="['/','characters', 'add' ]" 
+	  class="btn btn-outline-secondary mt-2">AJOUTER</button>
+		  
 </div>
