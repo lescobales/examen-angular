@@ -13,13 +13,15 @@ import {EpisodeService} from 'src/app/service/episode/episode.service';
 export class CharactersListComponent implements OnInit {
 	charactersHttp: CharacterHttp[] = []
 	characters: Character[] = []
+	episode!: [{}]
 	info!: {count: number, pages: number, next: string | null, prev: string | null}
 	constructor(private characterService: CharacterService,
 		private episodeService: EpisodeService,
 		private router: Router) {}
 
 	ngOnInit() {
-		this.getAll()
+		//this.getAll()
+		this.characterService.character$.subscribe(() => this.getAll())
 
 	}
 
@@ -30,13 +32,12 @@ export class CharactersListComponent implements OnInit {
 	getAll(page: number = 1) {
 		this.characterService.getAll(page)
 			.then((res) => {
-				this.charactersHttp = res.results
 				this.info = res.info
-				this.characters = this.charactersHttp.map(httpChar => Character.fromCharacterHttpToCharacter(httpChar))
-				for (let i = 0; i < this.charactersHttp.length; i++) {
-					this.episodeService.getEpisodeFromUrls(this.charactersHttp[i].episode)
-						.then(epi => {
-							this.characters[i].episode = epi
+				this.characters = res.results
+				for (let i = 0; i < res.results.length; i++) {
+					this.episodeService.getEpisodeFromUrls(res.episode.results[i].episode)
+						.then(episodes => {
+							this.characters[i].episode = episodes
 						})
 
 				}

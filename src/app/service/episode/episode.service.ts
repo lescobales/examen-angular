@@ -20,9 +20,6 @@ export class EpisodeService {
 				episodesToString = episode.split('/').pop() + ',' + episodesToString
 		}
 		episodesToString = episodesToString.substring(0, episodesToString.length - 1)
-		return firstValueFrom(this.http.get<Episode[]>(this.baseUrl + 'episode/' + episodesToString)
-			.pipe(
-				map(response => (response))
-			))
+		return firstValueFrom(this.http.get<Episode[]>(this.baseUrl + 'episode/' + episodesToString))
 	}
 }

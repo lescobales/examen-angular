@@ -1,4 +1,4 @@
-<nav aria-label="...">
+<nav aria-label="..." *ngIf="info">
   <ul class="pagination">
     <li class="page-item" role ="button" *ngIf="info.prev" (click)="onPageClick('prev')">
       <a class="page-link" 

@@ -13,17 +13,23 @@ export class PaginatorComponent implements OnChanges {
 	minVisible: number = 5
 	maxVisible: number = 30
 	ngOnChanges() {
-		this.pages = new Array(this.info.pages)
+		if (this.info)
+			this.pages = new Array(this.info.pages)
 	}
 
 	onPageClick(value: any) {
 		if (typeof value === 'number') {
+			this.minVisible = value - 1
+			this.maxVisible = this.minVisible + 25
 			this.pageClick.emit(value)
 		} else if (value === 'next' && this.info.next !== null) {
 			let page = this.info.next.split('=')
 			let numerous!: string | undefined
 			numerous = page.pop()
 			if (numerous) {
+				this.minVisible += 1
+				this.maxVisible += 1
+
 				this.pageClick.emit(+numerous)
 			}
 		} else if (value === 'prev' && this.info.prev !== null) {
@@ -31,6 +37,9 @@ export class PaginatorComponent implements OnChanges {
 			let numerous!: string | undefined
 			numerous = page.pop()
 			if (numerous) {
+				this.minVisible -= 1
+				this.maxVisible -= 1
+
 				this.pageClick.emit(+numerous)
 			}
 		}

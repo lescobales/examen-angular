@@ -1,5 +1,4 @@
-import {Component, Input, OnChanges} from '@angular/core';
-import {Observable} from 'rxjs';
+import {Component, Input} from '@angular/core';
 import {Character} from 'src/app/model/character.model';
 
 @Component({
@@ -7,9 +6,7 @@ import {Character} from 'src/app/model/character.model';
 	templateUrl: './character-card.component.html',
 	styleUrls: ['./character-card.component.scss']
 })
-export class CharacterCardComponent implements OnChanges {
+export class CharacterCardComponent {
 
-	@Input() character!: Character
-	ngOnChanges() {
-	}
+	@Input() character?: Character
 }

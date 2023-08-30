@@ -1,1 +1,54 @@
-<p>character-form works!</p>
+<div class="row col-6 card shadow mx-auto mt-3">
+
+  <h3 class="text-center mt-3">{{title}}</h3>
+
+  <form [formGroup]="characterForm" (ngSubmit)="onSubmitForm()" class="my-3">
+
+    <div class="mb-3">
+      <label for="name">Nom</label>
+      <input id="name" formControlName="name" class="form-control" placeholder="Name" value="{{updatedCharacter ? updatedCharacter.name : ''}}">
+    </div>
+
+
+    <div class="mb-3">
+      <label for="status">Status</label>
+      <input id="status" formControlName="status" class="form-control" placeholder="Status" value="{{updatedCharacter ? updatedCharacter.status : ''}}">
+          </div>
+
+    <div class="mb-3">
+      <label for="species">Species</label>
+      <input id="species" formControlName="species" class="form-control" placeholder="Species" value="{{updatedCharacter ? updatedCharacter.species : ''}}">
+    </div>
+
+    <div class="mb-3">
+      <label for="type">Type</label>
+      <input id="type" formControlName="type" class="form-control" placeholder="Type" value="{{updatedCharacter ? updatedCharacter.type : ''}}">
+    </div>
+
+    <div class="mb-3">
+      <label for="gender">Gender</label>
+      <input id="gender" formControlName="gender" class="form-control" placeholder="Gender" value="{{updatedCharacter ? updatedCharacter.gender : ''}}">
+    </div>
+
+    
+    <div class="mb-3">
+      <label for="image">Image</label>
+      <input id="image" formControlName="image" class="form-control" placeholder="Image" value="{{updatedCharacter ? updatedCharacter.image : ''}}">
+    </div>
+
+    <div class="mb-3">
+      <label for="url">Url</label>
+      <input id="url" formControlName="url" class="form-control" placeholder="Url" value="{{updatedCharacter ? updatedCharacter.url : ''}}">
+    </div>
+
+
+    <button type="submit" class="d-grid col-4 mx-auto btn btn-dark" [disabled]="characterForm.invalid">
+      {{labelBtn}}
+    </button>
+  </form>
+
+  <a routerLink="/characters" class="text-center text-dark mb-2">
+    RETOUR
+  </a>
+
+</div>

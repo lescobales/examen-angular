@@ -15,6 +15,7 @@ import {CharacterFormComponent} from './component/character-form/character-form/
 import {NotFoundComponent} from './view/not-found/not-found/not-found.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {SearchBarComponent} from './component/search-bar/search-bar/search-bar.component';
 
 @NgModule({
 	declarations: [
@@ -28,7 +29,8 @@ import {HttpClientModule} from '@angular/common/http';
 		CharacterEditComponent,
 		CharacterAddComponent,
 		CharacterFormComponent,
-		NotFoundComponent
+		NotFoundComponent,
+		SearchBarComponent,
 	],
 	imports: [
 		BrowserModule,

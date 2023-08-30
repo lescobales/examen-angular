@@ -52,7 +52,7 @@ export namespace Character {
 			origin: characterHttp.origin,
 			location: characterHttp.location,
 			image: characterHttp.image,
-			//episode: epi,
+			//episode: episodes,
 			url: characterHttp.url,
 			created: new Date(characterHttp.created)
 		}

@@ -1,1 +1,8 @@
-<p>character-edit works!</p>
+<app-character-form
+	*ngIf="characterToUpdate"
+	labelBtn="EDITER"
+	title="EDITER LE PERSONNAGE"
+	[updatedCharacter]="characterToUpdate"
+	(submittedForm)="updateCharacter($event)">
+
+</app-character-form>

@@ -1,4 +1,4 @@
-<div class="card" style="width: 12rem;">
+<div class="card" style="width: 12rem;" *ngIf="character">
 <a [routerLink]="['/characters', character.id]">
 	<img src="{{character.image}}" class="card-img-top" alt="{{character.name}}">
   <div class="card-body">
@@ -9,8 +9,8 @@
   </div></a>
 
   <select class="form-select" aria-label="Episodes list">
-  <option selected>See episodes</option>
-  <option *ngFor="let episode of character.episode "
+  <option selected>Show episodes</option>
+  <option *ngFor="let episode of character.episode"
   value="episode.id">
   {{episode.name}}</option>
 </select>
